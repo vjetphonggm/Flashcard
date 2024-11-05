@@ -1,0 +1,140 @@
+/* Mobile */
+@media (max-width: 739px) {
+    /* Flashcard container width and height for mobile */
+    #flashcard {
+        width: 278px;
+        height: 505px;
+    }
+
+    /* Full width for card list section on mobile */
+    #card-list-section {
+        width: 100%;
+    }
+
+    /* Full width for card list section on mobile */
+    #card-list-section {
+        width: 100%;
+    }
+
+    /* Set close button color in card list */
+    #card-list li button {
+        color: var(--close-btn-color);
+    }
+
+    /* Keep same color for close button on hover */
+    #card-list li button:hover {
+        color: var(--close-btn-color);
+    }
+
+    /* Adjust font size and layout for card-count on mobile */
+    #card-count {
+        display: flex;
+        font-size: 26px;
+        margin: 8px;
+        align-items: center;
+    }
+
+    /* Vocab input field width, height, and font size for mobile */
+    #vocab-input {
+        width: 278px;
+        height: 480px;
+        font-size: 20px;
+        margin-top: 1px;
+        outline: none;
+    }
+
+    /* Wrapper for vocab input with padding and background for mobile */
+    #vocab-input-wrapper {
+        margin-bottom: -45px;
+        width: 346px;
+        height: 745px;
+        background-color: #fff;
+        padding: 50px 26px;
+    }
+
+    /* Set max-width for answer input field */
+    #answer-input {
+        max-width: 320px;
+        margin-bottom: -324px;
+    }
+
+    /* Full width and fixed height for the answer overlay on mobile */
+    #answer-overlay {
+        height: 550px;
+    }
+
+    /* Center controls with flexbox on mobile */
+    #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Button styling in controls section for mobile */
+    #controls button {
+        margin: 8px;
+        width: 68px;
+        height: 68px;
+    }
+
+    /* Styles the icon inside a button, setting its font size to 30px */
+    #controls button i {
+        font-size: 30px;
+    }
+
+    /* Result section margin for mobile layout */
+    .result {
+        margin-bottom: 365px;
+    }
+
+    /* First row: prev, card-count, next buttons */
+    .control-row-1 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+        width: 100%;
+    }
+
+    /* Second row: reverse, shuffle, check, add-vocab-show buttons */
+    .control-row-2 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Set close button color */
+    .close-btn {
+        color: var(--close-btn-color);
+    }
+
+    /* Keep same color for close button on hover */
+    .close-btn:hover {
+        color: var(--close-btn-color);
+    }
+
+    /* Change background color of these buttons on hover when enabled */
+    button#reverse:hover:enabled,
+    button#shuffle:hover:enabled,
+    button#check:hover:enabled {
+        background-color: var(--btn-disabled-color);
+    }
+
+    /* Styles for vocabulary words */
+    .vocab-word {
+        width: 100px;
+        word-wrap: break-word;
+        word-break: break-all;
+        font-size: 22px;
+    }
+
+    /* Positions the card-controls section 20 pixels from the bottom of its container */
+    #card-controls {
+        bottom: 20px;
+    }
+
+    /* Style for the 'Add Vocabulary' button  */
+    #add-vocab {
+        font-size: 24px;
+    }
+}
