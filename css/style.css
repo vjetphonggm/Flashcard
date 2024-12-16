@@ -1,0 +1,450 @@
+/* General Styles */
+/* Set general font, background color, and spacing for the entire body of the page */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--white-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure consistency in font across body, div, and paragraph elements */
+body,
+div,
+p {
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Style the header with a fixed height, center content both horizontally and vertically, and fix position on scroll */
+header {
+    background-color: var(--white-color);
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Set top margin for main content (accounting for the fixed header) and center it both horizontally and vertically */
+main {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color definitions for the palette from light to dark */
+/* Colors: #FF8F26, #FF7620, #FF5918, #FF4C14 */
+
+/* Font definitions using @font-face for various styles of Segoe UI */
+/* Regular font face */
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('./font/Segoe UI.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Segoe UI Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Italic'),
+        url('./font/Segoe UI Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Segoe UI Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Bold'), url('./font/Segoe UI Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Segoe UI Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Bold Italic'),
+        url('./font/Segoe UI Bold Italic.woff') format('woff');
+}
+
+/* Set the height of the logo to 25px and make it clickable */
+#logo {
+    height: 25px;
+    cursor: pointer;
+}
+
+/* Style for the card count text: bold with font size 18px */
+#card-count {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Flashcard Container */
+/* Center the flashcard container and set a top margin of 16px */
+#flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    position: relative;
+    /* Set the position to relative to allow positioning of overlays */
+}
+
+/* Wrapper for each flashcard with padding, background, shadow, and rounded corners */
+.flashcard-wrapper {
+    padding: 24px 32px;
+    background: var(--gradient-background);
+    display: inline-block;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+/* Style the individual flashcard with a fixed size, center content, and ensure it is on top */
+#flashcard {
+    width: 960px;
+    height: 490px;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 33px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1;
+    /* Ensure the flashcard stays above other elements in the container */
+}
+
+/* Controls section for buttons (like Next, Previous) with some margin on top */
+#controls {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+/* Style for the buttons in the controls: margin, padding, font-size, and make them circular */
+#controls button {
+    margin: 0 8px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    /* Rounded button shape */
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Disabled buttons are styled with a grey background and disabled cursor */
+#controls button:disabled {
+    background-color: var(--btn-disabled-color);
+    cursor: not-allowed;
+}
+
+/* Enabled buttons change background color on hover */
+#controls button:hover:enabled {
+    background-color: var(--btn-hover-color);
+}
+
+/* Style icons inside the buttons with font-size of 20px */
+#controls button i {
+    font-size: 20px;
+}
+
+/* Answer Overlay */
+/* Position the answer overlay on top of the flashcard with absolute positioning */
+#answer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    /* Ensure it is above the flashcard */
+    display: none;
+    /* Hidden by default */
+}
+
+/* Style the input field for the answer with padding, font size, and border */
+#answer-input {
+    padding: 16px;
+    font-size: 33px;
+    border: 1px solid var(--btn-disabled-color);
+    border-radius: 12px;
+    max-width: 600px;
+    margin-bottom: -364px;
+    position: absolute;
+    outline: none;
+    text-align: center;
+}
+
+/* Progress Bar Styles */
+/* Style the progress bar container to be fixed at the top of the screen */
+#progress-container {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    z-index: 999;
+}
+
+/* Style the progress bar itself with a red color and set initial width to 0% */
+#progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+}
+
+/* Vocabulary Input Section */
+/* Initially hide the vocabulary input section with black semi-transparent background */
+#vocab-input-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black semi-transparent background */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure it is on top of other content */
+}
+
+/* Show the vocabulary input section when the 'show' class is added */
+#vocab-input-section.show {
+    display: flex;
+}
+
+/* Wrapper for the content inside the vocabulary input section */
+#vocab-input-wrapper {
+    background-color: var(--white-color);
+    padding: 50px 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* For positioning the close button */
+}
+
+/* Style for the vocabulary input field: set dimensions, font size, line height, and margin */
+#vocab-input {
+    width: 960px;
+    height: 325px;
+    padding: 16px;
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 16px;
+}
+
+/* Style for the 'Add Vocabulary' button with padding, bold text, and a hover effect */
+#add-vocab {
+    padding: 25px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--white-color);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin-top: 11px;
+    margin-bottom: -22px;
+    font-weight: bold;
+}
+
+/* Change background color of 'Add Vocabulary' button on hover */
+#add-vocab:hover {
+    background-color: var(--btn-hover-color);
+}
+
+/* Button to show the vocabulary input section with padding, border, and hover effect */
+#add-vocab-show {
+    background-color: var(--btn-color);
+    color: var(--white-color);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Style for vocabulary instruction text with specific font size and margin */
+.vocab-instruction {
+    font-size: 18px;
+    margin-bottom: 19px;
+}
+
+/* Change background color of 'Add Vocabulary' button on hover */
+#add-vocab-show:hover {
+    background-color: var(--btn-hover-color);
+}
+
+/* Close button (X) styling: position, size, and color */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--black-color);
+    position: absolute;
+    top: 12.5px;
+    right: 17px;
+    cursor: pointer;
+}
+
+/* Change color of close button to red on hover */
+.close-btn:hover {
+    color: var(--close-btn-color);
+}
+
+/* Card List Section */
+/* Set width, margin, and background for the card list section */
+#card-list-section {
+    width: 1024px;
+    background-color: #f6f7fb;
+    margin-top: 26px;
+    border-radius: 1rem;
+    margin-bottom: 26px;
+}
+
+/* Style the title of the card list section with font size and centered text */
+#card-list-section h2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Remove default list styling and padding for the card list */
+#card-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style individual list items with padding, border, shadow, and background */
+#card-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 17px;
+    color: var(--white-color);
+    background: var(--gradient-background);
+    margin: 16px 24px;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+/* Style buttons inside the card list with font size, background color, and padding */
+#card-list li button {
+    font-size: 22px;
+    background-color: var(--transparent-color);
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 17px;
+}
+
+/* Change button color on hover to red */
+#card-list li button:hover {
+    color: var(--close-btn-color);
+}
+
+/* Style buttons with specific IDs ('reverse', 'shuffle', 'check') with grey background */
+button#reverse,
+button#shuffle,
+button#check {
+    background-color: var(--btn-disabled-color);
+}
+
+/* Style for the result text with font size and centered alignment */
+.result {
+    font-size: 33px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 402px;
+}
+
+/* Style for correct result with green color */
+.correct {
+    color: #00ff00;
+}
+
+/* Style for wrong result with red color */
+.wrong {
+    color: #ff8682;
+}
+
+/* Styles for vocabulary words */
+.vocab-word {
+    display: flex;
+    width: 250px;
+    min-height: 50px;
+    font-size: 26px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    user-select: text;
+    cursor: pointer;
+}
+
+/* Styles for vocabulary definitions */
+.vocab-definition {
+    flex: 1;
+    display: flex;
+    width: calc(100% - 250px);
+    align-items: center;
+    padding-left: 20px;
+    user-select: text;
+    cursor: pointer;
+}
+
+/* Center-aligns the content in the card controls section */
+#card-controls {
+    position: sticky;
+    bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    /* opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; */
+}
+
+/* Styles for the buttons within the card controls */
+#card-controls button {
+    padding: 16px 20px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff8f26, #ff7620);
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+/* Styles for icons within buttons */
+#card-controls .fas {
+    margin-right: 5px;
+}
+
+/* Define a toggle button's width to 200px */
+#toggle-definition {
+    width: 206px;
+}

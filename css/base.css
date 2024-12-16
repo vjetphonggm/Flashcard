@@ -1,0 +1,38 @@
+/* CSS Reset */
+/* Remove default margin, padding, and set border-box for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure html and body elements take full height */
+html,
+body {
+    height: 100%;
+}
+
+/* Set default line-height for body text */
+body {
+    line-height: 1.6;
+    user-select: none;
+}
+
+/* CSS Custom Properties (Variables) for theming and colors */
+:root {
+    --primary-color: #f05123;
+    --black-color: #000;
+    --white-color: #fff;
+    --btn-color: #ff8f26;
+    --btn-disabled-color: #ccc;
+    --btn-hover-color: #ff7620;
+    --close-btn-color: #eb1000;
+    --transparent-color: rgba(255, 255, 255, 0);
+    --gradient-background: linear-gradient(
+        90deg,
+        #852efa,
+        #7853fa,
+        #6a79fa,
+        #5d9cfa
+    );
+}
